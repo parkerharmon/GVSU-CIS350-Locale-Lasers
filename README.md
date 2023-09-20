@@ -1,10 +1,12 @@
 # Team Name
+Locale Lasers
 
 Project description (~1 paragraph)
+We will be developing a rogue like game within python.
 
 ## Team Members and Roles
 
-* Member 1 (Role 1, Role 2)
+* Parker Harmon
 * Member 2 (Role 3, Role 4)
 * Member 3 (Role 5, Role 6)
 
