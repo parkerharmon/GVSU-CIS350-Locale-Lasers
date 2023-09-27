@@ -8,7 +8,7 @@ We will be developing a rogue like game within python.
 
 * Parker Harmon
 * Owen Wheeler
-* Member 3 (Role 5, Role 6)
+* Derek Tramper
 
 ## Prerequisites
 
