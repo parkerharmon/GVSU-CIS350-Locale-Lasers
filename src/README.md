@@ -1,2 +1,3 @@
 Placeholder for source code
-Sample Changes ~Owen Wheeler
+# Team Members
+* [Owen Wheeler](https://github.com/Wheeleow/CIS350-HW2-Wheeler)
