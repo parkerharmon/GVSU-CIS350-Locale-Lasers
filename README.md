@@ -6,7 +6,7 @@ We will be developing a rogue like game within python.
 
 ## Team Members and Roles
 
-* Parker Harmon
+* [Parker Harmon](https://github.com/parkerharmon/CIS350-HW2-Harmon/settings/pages)
 * Owen Wheeler
 * Derek Tramper
 
