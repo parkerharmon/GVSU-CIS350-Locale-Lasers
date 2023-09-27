@@ -1,6 +1,6 @@
 Team name: Locale Lasers
 
-Team members: Derek Tramper, Parker Harmon, Owen Wheeler
+Team members: Derek Tramper, Parker Harmon, Owen Wheeler 
 
 # Introduction
 
