@@ -1,8 +1,8 @@
-# Team Name
-Locale Lasers
+# Locale Lasers
 
-Project description (~1 paragraph)
-We will be developing a rogue like game within python.
+
+## Project description 
+We will be developing a rogue like game within python. It will be a top down 2D turn-based game where you have to fight your way through dungeons until the end.
 
 ## Team Members and Roles
 
