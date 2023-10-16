@@ -1,6 +1,12 @@
+Button
+VBoxContainer
+MarginContainer
+RemoteTransform2D
+Camera2D
+TileMap
 CollisionShape2D
+Sprite2D
+CharacterBody2D
 StaticBody2D
 AnimatedSprite2D
-CharacterBody2D
 Label
-Button
