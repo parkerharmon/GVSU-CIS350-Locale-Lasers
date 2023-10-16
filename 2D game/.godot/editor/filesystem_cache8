@@ -1,9 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1697414367
+::res://::1697424316
 icon.svg::CompressedTexture2D::4176939152079068513::1697402992::1697403070::1::::<><>::
-main.gd::GDScript::-1::1697412186::0::1::::<>Node2D<>::
-main.tscn::PackedScene::7450196173486937749::1697406564::0::1::::<><>::res://main.gd
-::res://assets/::1697406195
+::res://assets/::1697423492
 player.png::CompressedTexture2D::4624585313461983014::1697404296::1697404335::1::::<><>::
 ::res://assets/2D Pixel Dungeon Asset Pack v2.0/::1697402992
 ::res://assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/::1697404437
@@ -231,6 +229,80 @@ torch_1.png::CompressedTexture2D::8150999252523183772::1697402992::1697404437::1
 torch_2.png::CompressedTexture2D::3480972343703258819::1697402992::1697404437::1::::<><>::
 torch_3.png::CompressedTexture2D::5598637598395494710::1697402992::1697404437::1::::<><>::
 torch_4.png::CompressedTexture2D::890429061610825970::1697402992::1697404437::1::::<><>::
+::res://assets/100-Sub-Assets-Free/::1697423460
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/::1697423509
+Sample.png::CompressedTexture2D::399134981573477325::1697423460::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Fonts/::1697423509
+m5x7.ttf::FontFile::7970853755689563404::1697423460::1697423509::1::::<><>::
+PixeloidMono-1G8ae.ttf::FontFile::5781498732497499923::1697423460::1697423509::1::::<><>::
+PixeloidSans-nR3g1.ttf::FontFile::7077838085551215656::1697423460::1697423509::1::::<><>::
+PixeloidSansBold-RpeJo.ttf::FontFile::2355558839275372680::1697423460::1697423509::1::::<><>::
+PixelRPG.ttf::FontFile::219107004186218623::1697423460::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Misc_Tiles/::1697424316
+Archway-1.png::CompressedTexture2D::3224843578395421877::1697423460::1697423509::1::::<><>::
+Archway-2.png::CompressedTexture2D::5593750465793765844::1697423460::1697423509::1::::<><>::
+Archway-3.png::CompressedTexture2D::5238623556094339508::1697423460::1697423509::1::::<><>::
+Birch-1.png::CompressedTexture2D::5859353275163015867::1697423460::1697423509::1::::<><>::
+Birch-2.png::CompressedTexture2D::7827946164874665731::1697423460::1697423509::1::::<><>::
+Cattails.png::CompressedTexture2D::4984104499723126363::1697423460::1697423509::1::::<><>::
+Cliff-1.png::CompressedTexture2D::5501541876489621445::1697423460::1697423509::1::::<><>::
+Cliff-2.png::CompressedTexture2D::4435958471933782844::1697423460::1697423509::1::::<><>::
+Grass.png::CompressedTexture2D::6301717562951432184::1697423460::1697423509::1::::<><>::
+Mushroom.png::CompressedTexture2D::2249138754840969245::1697423460::1697423509::1::::<><>::
+Portabella_Mushroom.png::CompressedTexture2D::2862772558924833830::1697423460::1697423509::1::::<><>::
+Repeat-Vine.png::CompressedTexture2D::8045052015164890290::1697423460::1697423509::1::::<><>::
+Stone.png::CompressedTexture2D::6644193176608922889::1697423460::1697423509::1::::<><>::
+Vine.png::CompressedTexture2D::1801365813791921098::1697423460::1697423509::1::::<><>::
+Wood.png::CompressedTexture2D::1456140852252825176::1697423460::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Monsters/::1697424316
+Anubian Knight Sheet.png::CompressedTexture2D::6387560939838371100::1697423460::1697424317::1::::<><>::
+Corvinian_Troll-Sheet.png::CompressedTexture2D::2917130553919178081::1697423460::1697423509::1::::<><>::
+Slime-Sheet.png::CompressedTexture2D::131128604915758134::1697423460::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Player/::1697423509
+playersprite.png::CompressedTexture2D::7376910060826840207::1697423460::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Repeating_Tiles/::1697423509
+Repeat-Grass.png::CompressedTexture2D::4259888634425532082::1697423460::1697423509::1::::<><>::
+Repeat-Stone.png::CompressedTexture2D::8236964948423004407::1697423460::1697423509::1::::<><>::
+Repeat-Water1.png::CompressedTexture2D::7071935648474861193::1697423460::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Sound_Effects/::1697423461
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Sound_Effects/Attacks/::1697423509
+magic.wav::AudioStreamWAV::9082629084803374193::1697423460::1697423509::1::::<><>::
+swing2.wav::AudioStreamWAV::4077813919473909119::1697423460::1697423509::1::::<><>::
+swing.wav::AudioStreamWAV::4987954891251052451::1697423460::1697423509::1::::<><>::
+sword-unsheathe2.wav::AudioStreamWAV::2023417711594991584::1697423460::1697423509::1::::<><>::
+sword-unsheathe.wav::AudioStreamWAV::197557676753627470::1697423460::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Sound_Effects/Misc/::1697423509
+armor1.wav::AudioStreamWAV::1036718000445887238::1697423460::1697423509::1::::<><>::
+armor2.wav::AudioStreamWAV::6813249765839567983::1697423460::1697423509::1::::<><>::
+bubble2.wav::AudioStreamWAV::3237597161034445151::1697423461::1697423509::1::::<><>::
+bubble3.wav::AudioStreamWAV::6394836990057455845::1697423461::1697423509::1::::<><>::
+bubble.wav::AudioStreamWAV::8219335499100103810::1697423461::1697423509::1::::<><>::
+door.wav::AudioStreamWAV::3092705289169370621::1697423461::1697423509::1::::<><>::
+toggle1.wav::AudioStreamWAV::5860589070491019305::1697423461::1697423509::1::::<><>::
+toggle2.wav::AudioStreamWAV::4148314408078906904::1697423461::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Sound_Effects/Monsters/::1697423461
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Sound_Effects/Monsters/Slime/::1697423509
+slime1.wav::AudioStreamWAV::3723813312705223503::1697423461::1697423509::1::::<><>::
+slime2.wav::AudioStreamWAV::8795069880394673112::1697423461::1697423509::1::::<><>::
+slime3.wav::AudioStreamWAV::6931976770129384941::1697423461::1697423509::1::::<><>::
+slime_death.wav::AudioStreamWAV::3156373880204446488::1697423461::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Sound_Effects/Monsters/Troll/::1697423509
+troll1.wav::AudioStreamWAV::1801358640026473620::1697423461::1697423509::1::::<><>::
+troll2.wav::AudioStreamWAV::58784811010946428::1697423461::1697423509::1::::<><>::
+troll3.wav::AudioStreamWAV::2341069600470857135::1697423461::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Sound_Effects/Monsters/Wolf/::1697423509
+snarl2.wav::AudioStreamWAV::1411873614865124324::1697423461::1697423509::1::::<><>::
+snarl3.wav::AudioStreamWAV::2399361097322424212::1697423461::1697423509::1::::<><>::
+snarl4.wav::AudioStreamWAV::8500560448795943128::1697423461::1697423509::1::::<><>::
+snarl.wav::AudioStreamWAV::5644946624547254427::1697423461::1697423509::1::::<><>::
+::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Weapons/::1697423509
+Broken Crescent.png::CompressedTexture2D::57920984662562017::1697423461::1697423509::1::::<><>::
+Dane Axe.png::CompressedTexture2D::5151695361532136071::1697423461::1697423509::1::::<><>::
+Dawn Cleaver.png::CompressedTexture2D::6453172271015698293::1697423461::1697423509::1::::<><>::
+Farmer PitchFork.png::CompressedTexture2D::5065695750492899921::1697423461::1697423509::1::::<><>::
+Flamebreaker.png::CompressedTexture2D::5429210193525180860::1697423461::1697423509::1::::<><>::
+Titan Armor-Piercer.png::CompressedTexture2D::3498290703276538668::1697423461::1697423509::1::::<><>::
+Traveller Spear.png::CompressedTexture2D::4083232817617698005::1697423461::1697423509::1::::<><>::
 ::res://assets/P_P_FREE_RPG_TILESET/::1697402992
 ::res://assets/P_P_FREE_RPG_TILESET/P_P_FREE_RPG_TILESET/::1697404437
 decor.png::CompressedTexture2D::1110614537769737855::1697402992::1697404437::1::::<><>::
@@ -247,16 +319,15 @@ TX Struct.png::CompressedTexture2D::3038922231301389978::1697404190::1697406197:
 TX Tileset Grass.png::CompressedTexture2D::34269664578681581::1697404190::1697406197::1::::<><>::
 TX Tileset Stone Ground.png::CompressedTexture2D::4797586508760134924::1697404190::1697406197::1::::<><>::
 TX Tileset Wall.png::CompressedTexture2D::1813080824870170660::1697404190::1697406197::1::::<><>::
-::res://characters/::1697414444
-player.tscn::PackedScene::8633741121425371783::1697414444::0::1::::<><>::res://characters/player.gd<>uid://b65gikt7qdy03::::res://assets/player.png
-player.gd::GDScript::-1::1697412036::0::1::::<>CharacterBody2D<>::
-::res://Player/::1697413761
-player.gd::GDScript::-1::1697406114::0::1::::<>CharacterBody2D<>::
-::res://scenes/::1697414444
-main.tscn::PackedScene::1069337675668933050::1697414444::0::1::::<><>::res://main.gd
-LevelOne.tscn::PackedScene::5137009997063877739::1697414444::0::1::::<><>::uid://dvaipp2827dv8::::res://characters/player.tscn<>uid://quofk7syblt::::res://assets/TX pack/TX Tileset Grass.png<>uid://cal8swqrsq5gi::::res://assets/TX pack/TX Tileset Stone Ground.png<>uid://03jf817i4133::::res://assets/TX pack/TX Tileset Wall.png<>uid://bjkcuttdw3wr7::::res://assets/TX pack/TX Struct.png<>uid://cpjklpx5yh3c5::::res://assets/TX pack/TX Props.png<>uid://branlk5tqg2ym::::res://assets/TX pack/TX Plant.png<>uid://d4kncmn4ythjo::::res://assets/TX pack/TX Shadow Plant.png
-main_menu.tscn::PackedScene::7242932770187699277::1697414444::0::1::::<><>::
-options_menu.tscn::PackedScene::6193165452146124511::1697414498::0::1::::<><>::
+::res://characters/::1697424069
+player.gd::GDScript::-1::1697414947::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::8633741121425371783::1697424069::0::1::::<><>::res://characters/player.gd<>uid://b65gikt7qdy03::::res://assets/player.png
+::res://Player/::1697414947
+player.gd::GDScript::-1::1697414947::0::1::::<>CharacterBody2D<>::
+::res://scenes/::1697424069
+LevelOne.tscn::PackedScene::5137009997063877739::1697424069::0::1::::<><>::uid://dvaipp2827dv8::::res://characters/player.tscn<>uid://quofk7syblt::::res://assets/TX pack/TX Tileset Grass.png<>uid://cal8swqrsq5gi::::res://assets/TX pack/TX Tileset Stone Ground.png<>uid://03jf817i4133::::res://assets/TX pack/TX Tileset Wall.png<>uid://bjkcuttdw3wr7::::res://assets/TX pack/TX Struct.png<>uid://cpjklpx5yh3c5::::res://assets/TX pack/TX Props.png<>uid://branlk5tqg2ym::::res://assets/TX pack/TX Plant.png<>uid://d4kncmn4ythjo::::res://assets/TX pack/TX Shadow Plant.png
+main_menu.tscn::PackedScene::7242932770187699277::1697424069::0::1::::<><>::
+options_menu.tscn::PackedScene::6193165452146124511::1697424069::0::1::::<><>::
 world.tscn::PackedScene::-1::1697403380::0::1::::<><>::
-::res://scripts/::1697406085
-main.gd::GDScript::-1::1697402992::0::1::::<>Node2D<>::
+::res://scripts/::1697424064
+main.gd::GDScript::-1::1697414947::0::1::::<>Node2D<>::
