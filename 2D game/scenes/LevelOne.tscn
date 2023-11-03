@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfgn2ltlkl732"]
+[gd_scene load_steps=18 format=3 uid="uid://cfgn2ltlkl732"]
 
 [ext_resource type="PackedScene" uid="uid://dvaipp2827dv8" path="res://characters/player.tscn" id="1_a5gvj"]
 [ext_resource type="Texture2D" uid="uid://quofk7syblt" path="res://assets/TX pack/TX Tileset Grass.png" id="2_wdf3e"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpjklpx5yh3c5" path="res://assets/TX pack/TX Props.png" id="6_5adbi"]
 [ext_resource type="Texture2D" uid="uid://branlk5tqg2ym" path="res://assets/TX pack/TX Plant.png" id="7_wc3pc"]
 [ext_resource type="Texture2D" uid="uid://d4kncmn4ythjo" path="res://assets/TX pack/TX Shadow Plant.png" id="8_1grhe"]
+[ext_resource type="PackedScene" uid="uid://bqcor40xvdmp4" path="res://enemy_troll(1).tscn" id="9_fgs6q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7q205"]
 texture = ExtResource("2_wdf3e")
@@ -678,10 +679,6 @@ sources/8 = SubResource("TileSetAtlasSource_j4rut")
 [node name="player" parent="." instance=ExtResource("1_a5gvj")]
 top_level = true
 position = Vector2(423, 201)
-Speed = 50
-Friction = 0.15
-Acceleration = 40
-move_speed = 100.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
 remote_path = NodePath("../../Camera2D")
@@ -713,3 +710,5 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 3.0
+
+[node name="EnemyTroll" parent="." instance=ExtResource("9_fgs6q")]

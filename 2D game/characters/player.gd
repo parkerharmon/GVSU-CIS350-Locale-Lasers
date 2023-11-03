@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var Speed: int = 50
 @export var Friction: float = 0.15
 @export var Acceleration: int = 40
-
 @export var move_speed : float = 100
 
 
@@ -28,6 +27,5 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		$AnimationTree.set("parameters/Run/blend_position", velocity)
 		move_and_slide()
 		
-	
 	
 	
