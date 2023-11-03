@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dvaipp2827dv8"]
+[gd_scene load_steps=29 format=3 uid="uid://dvaipp2827dv8"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_62pwa"]
 [ext_resource type="Texture2D" uid="uid://dddovpl0qecah" path="res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Player/playersprite.png" id="2_nhqkd"]
@@ -449,6 +449,9 @@ states/Start/position = Vector2(196, 100)
 transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_e7dhi"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_874hn"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_rf8md")]
 graph_offset = Vector2(-352, -23)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o3u0k"]
+radius = 68.0661
+
 [node name="player" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_62pwa")
@@ -474,3 +477,15 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Idle/blend_position = Vector2(-0.486561, 0.619377)
 parameters/Run/blend_position = Vector2(-0.00164562, -0.972318)
+
+[node name="PlayerHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
+shape = SubResource("CircleShape2D_o3u0k")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 3.953
+
+[connection signal="body_entered" from="PlayerHitBox" to="." method="_on_player_hit_box_body_entered"]
+[connection signal="body_exited" from="PlayerHitBox" to="." method="_on_player_hit_box_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

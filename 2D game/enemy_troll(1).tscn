@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bqcor40xvdmp4"]
+[gd_scene load_steps=29 format=3 uid="uid://bqcor40xvdmp4"]
 
 [ext_resource type="Texture2D" uid="uid://bhtcyjobh7dcb" path="res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Monsters/Corvinian_Troll-Sheet.png" id="1_bbqyn"]
 [ext_resource type="Script" path="res://Troll_Enemy.gd" id="2_71iau"]
@@ -173,6 +173,9 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_6rvxl"]
 radius = 82.0061
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wu33w"]
+radius = 45.0999
+
 [node name="EnemyTroll" type="CharacterBody2D"]
 position = Vector2(276, 78)
 script = ExtResource("2_71iau")
@@ -205,6 +208,11 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_6rvxl")
+
+[node name="TrollHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrollHitBox"]
+shape = SubResource("CircleShape2D_wu33w")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

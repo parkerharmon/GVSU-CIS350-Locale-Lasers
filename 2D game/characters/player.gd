@@ -6,10 +6,14 @@ extends CharacterBody2D
 @export var Acceleration: int = 40
 @export var move_speed : float = 100
 
-
+var enemy_in_attack_range = false
+var health = 100
+var player_alive = true
+var enemy_cooldown = true
 ## PLAYER MOVEMENT
 func _physics_process(_delta):  # underscore represents unused parameter
 	var input_vector = Vector2.ZERO
+	enemy_attack()
 	# get input direction
 	
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -27,5 +31,29 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		$AnimationTree.set("parameters/Run/blend_position", velocity)
 		move_and_slide()
 		
+	if health <=0:
+		player_alive = false
+		print("you died")
 	
-	
+
+
+func _on_player_hit_box_body_entered(body):
+	if body.has_method("enemy"):
+		enemy_in_attack_range = true
+
+
+func _on_player_hit_box_body_exited(body):
+	if body.has_method("enemy"):
+		enemy_in_attack_range = false
+
+func enemy_attack():
+	if (enemy_in_attack_range and enemy_cooldown):
+		print("damage taken")
+		health = health-10
+		enemy_cooldown = false
+		$attack_cooldown.start()
+
+
+
+func _on_attack_cooldown_timeout():
+	enemy_cooldown = true
