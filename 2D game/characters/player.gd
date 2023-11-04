@@ -14,8 +14,9 @@ var enemy_cooldown = true
 func _physics_process(_delta):  # underscore represents unused parameter
 	var input_vector = Vector2.ZERO
 	enemy_attack()
-	# get input direction
+	update_health()
 	
+	# get input direction
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
@@ -53,7 +54,11 @@ func enemy_attack():
 		enemy_cooldown = false
 		$attack_cooldown.start()
 
-
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	
+	
 
 func _on_attack_cooldown_timeout():
 	enemy_cooldown = true
