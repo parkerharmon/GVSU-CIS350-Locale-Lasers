@@ -13,6 +13,10 @@ var enemy_cooldown = true
 ## PLAYER MOVEMENT
 func _physics_process(_delta):  # underscore represents unused parameter
 	var input_vector = Vector2.ZERO
+	var x = Vector2.ZERO
+	x.x = -1
+	x.y = 1
+	var attacking = false
 	enemy_attack()
 	update_health()
 	
@@ -20,15 +24,21 @@ func _physics_process(_delta):  # underscore represents unused parameter
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
-	
 	# update velocity
 	velocity = input_vector.normalized() * move_speed
-	if velocity == Vector2.ZERO:  # If character isn't moving, aka no input we will use idle position
+	
+	attacking = Input.is_action_pressed("attack")
+	if attacking:
+		$AnimationTree.get("parameters/playback").travel("Attack")
+
+	
+	elif velocity == Vector2.ZERO:  # If character isn't moving, aka no input we will use idle position
 		$AnimationTree.get("parameters/playback").travel("Idle")  
 	else:  # else we will update the animation to run in the given velocity
 		
 		$AnimationTree.get("parameters/playback").travel("Run")
 		$AnimationTree.set("parameters/Idle/blend_position", velocity)
+		$AnimationTree.set("parameters/Attack/blend_position", velocity)
 		$AnimationTree.set("parameters/Run/blend_position", velocity)
 		move_and_slide()
 		
@@ -62,3 +72,7 @@ func update_health():
 
 func _on_attack_cooldown_timeout():
 	enemy_cooldown = true
+
+
+func _on_sword_hit_area_entered(area):
+	print("hit")
