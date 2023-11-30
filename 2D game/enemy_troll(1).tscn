@@ -1,11 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://bqcor40xvdmp4"]
+[gd_scene load_steps=23 format=3 uid="uid://bqcor40xvdmp4"]
 
 [ext_resource type="Texture2D" uid="uid://bhtcyjobh7dcb" path="res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Monsters/Corvinian_Troll-Sheet.png" id="1_bbqyn"]
 [ext_resource type="Script" path="res://Troll_Enemy.gd" id="2_71iau"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_10xl5"]
-radius = 16.0
-height = 40.0
+height = 36.0
 
 [sub_resource type="Animation" id="Animation_eopxx"]
 resource_name = "Idle"
@@ -24,19 +23,31 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_oarde"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_genwk"]
 resource_name = "Walk_Down"
-length = 2.0
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TrollSprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -44,16 +55,16 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_gqm1y"]
 resource_name = "Walk_Left"
-length = 2.0
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TrollSprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [12, 13, 14, 15]
@@ -61,32 +72,33 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_r7atw"]
 resource_name = "Walk_Right"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TrollSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [5, 6, 7, 6]
-}
-
-[sub_resource type="Animation" id="Animation_hj5ko"]
-resource_name = "Walk_Up"
-length = 1.25
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TrollSprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_hj5ko"]
+resource_name = "Walk_Up"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [8, 9, 10, 11]
@@ -102,79 +114,53 @@ _data = {
 "Walk_Up": SubResource("Animation_hj5ko")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a700o"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b1oj2"]
 animation = &"Walk_Up"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_132mv"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wsqla"]
-animation = &"Walk_Left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pbyag"]
-animation = &"Walk_Right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qk73o"]
-animation = &"Walk_Up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ki4fg"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_226ud"]
 animation = &"Walk_Down"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_01yr5"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1vx5i"]
+animation = &"Walk_Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ajck"]
 animation = &"Walk_Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gkf5j"]
-animation = &"Idle"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_5tfw0"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_pbyag")
-blend_point_0/pos = Vector2(1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_qk73o")
-blend_point_1/pos = Vector2(0, 1.1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_ki4fg")
-blend_point_2/pos = Vector2(0, -1.1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_01yr5")
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_1xcxj"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_b1oj2")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_226ud")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_1vx5i")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_6ajck")
 blend_point_3/pos = Vector2(-1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_gkf5j")
-blend_point_4/pos = Vector2(0, 0)
-min_space = Vector2(-1, -1.1)
-max_space = Vector2(1, 1.1)
+blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j0c0y"]
-animation = &"Walk_Up"
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_33egt"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ls75"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c0qdf"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_40nsy"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tl602"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ettp"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b3ixk"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_he1hk"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fb2rg"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_c801c"]
-states/Idle/node = SubResource("AnimationNodeAnimation_a700o")
-states/Idle/position = Vector2(470, 105)
-states/Walk_Down/node = SubResource("AnimationNodeBlendSpace2D_132mv")
-states/Walk_Down/position = Vector2(470, 192)
-states/Walk_Left/node = SubResource("AnimationNodeAnimation_wsqla")
-states/Walk_Left/position = Vector2(268, 155)
-states/Walk_Right/node = SubResource("AnimationNodeBlendSpace2D_5tfw0")
-states/Walk_Right/position = Vector2(701, 90)
-states/Walk_Up/node = SubResource("AnimationNodeAnimation_j0c0y")
-states/Walk_Up/position = Vector2(479, 37)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_6ls75"), "Idle", "Walk_Right", SubResource("AnimationNodeStateMachineTransition_40nsy"), "Idle", "Walk_Down", SubResource("AnimationNodeStateMachineTransition_5ettp"), "Walk_Left", "Idle", SubResource("AnimationNodeStateMachineTransition_b3ixk"), "Walk_Up", "Idle", SubResource("AnimationNodeStateMachineTransition_he1hk")]
+states/Walking/node = SubResource("AnimationNodeBlendSpace2D_1xcxj")
+states/Walking/position = Vector2(521, 90)
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_33egt")
+states/idle/position = Vector2(345, 95)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_c0qdf"), "idle", "Walking", SubResource("AnimationNodeStateMachineTransition_tl602"), "Walking", "idle", SubResource("AnimationNodeStateMachineTransition_fb2rg")]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6rvxl"]
 radius = 82.0061
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wu33w"]
-radius = 19.2354
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_moqd1"]
+radius = 13.0
+height = 40.0
 
 [node name="EnemyTroll" type="CharacterBody2D"]
 position = Vector2(276, 78)
@@ -199,8 +185,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_c801c")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Walk_Down/blend_position = Vector2(0, 0)
-parameters/Walk_Right/blend_position = Vector2(-0.0143703, 0.521053)
+parameters/Walking/blend_position = Vector2(-0.576522, 0.152672)
+parameters/idle/blend_position = Vector2(0, 0)
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 2
@@ -212,7 +198,7 @@ shape = SubResource("CircleShape2D_6rvxl")
 [node name="TrollHitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TrollHitBox"]
-shape = SubResource("CircleShape2D_wu33w")
+shape = SubResource("CapsuleShape2D_moqd1")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

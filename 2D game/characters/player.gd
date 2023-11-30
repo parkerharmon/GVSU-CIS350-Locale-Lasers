@@ -9,7 +9,7 @@ extends CharacterBody2D
 var enemy_in_attack_range = false
 var health = 100
 var player_alive = true
-var enemy_cooldown = true
+var enemy_cooldown = true  # true is when enemy can attack
 ## PLAYER MOVEMENT
 func _physics_process(_delta):  # underscore represents unused parameter
 	var input_vector = Vector2.ZERO
@@ -27,7 +27,7 @@ func _physics_process(_delta):  # underscore represents unused parameter
 	# update velocity
 	velocity = input_vector.normalized() * move_speed
 	
-	attacking = Input.is_action_pressed("attack")
+	attacking = Input.is_action_pressed("attack")  # checking if player attacks
 	if attacking:
 		$AnimationTree.get("parameters/playback").travel("Attack")
 
@@ -42,7 +42,7 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		$AnimationTree.set("parameters/Run/blend_position", velocity)
 		move_and_slide()
 		
-	if health <=0:
+	if health <=0:  # checking if player died
 		player_alive = false
 		print("you died")
 	
@@ -74,5 +74,5 @@ func _on_attack_cooldown_timeout():
 	enemy_cooldown = true
 
 
-func _on_sword_hit_area_entered(area):
+func _on_sword_hit_area_entered(_area):
 	print("hit")

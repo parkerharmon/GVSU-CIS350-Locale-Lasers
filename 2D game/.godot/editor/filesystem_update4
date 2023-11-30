@@ -4,4 +4,6 @@ res://scenes/main_menu.tscn
 res://scenes/options_menu.tscn
 res://enemy_troll(1).tscn
 res://characters/player.gd
+res://scripts/main.gd
+res://Player/player.gd
 res://Troll_Enemy.gd
