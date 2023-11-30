@@ -11,6 +11,13 @@ var health = 100
 var player_alive = true
 var enemy_cooldown = true  # true is when enemy can attack
 ## PLAYER MOVEMENT
+
+#projectile variables
+var mouse_pos = get_global_mouse_position()  #gets location of mouse 
+var shoot_cooldown = true #cooldown for ranged attack
+var spear = preload("res://scenes/RangedSpear.tscn") #references RangedSpear scene
+
+
 func _physics_process(_delta):  # underscore represents unused parameter
 	var input_vector = Vector2.ZERO
 	var x = Vector2.ZERO
@@ -27,6 +34,7 @@ func _physics_process(_delta):  # underscore represents unused parameter
 	# update velocity
 	velocity = input_vector.normalized() * move_speed
 	
+	#sword attack
 	attacking = Input.is_action_pressed("attack")  # checking if player attacks
 	if attacking:
 		$AnimationTree.get("parameters/playback").travel("Attack")
@@ -41,22 +49,33 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		$AnimationTree.set("parameters/Attack/blend_position", velocity)
 		$AnimationTree.set("parameters/Run/blend_position", velocity)
 		move_and_slide()
-		
+		#end sword attack
 	if health <=0:  # checking if player died
 		player_alive = false
 		print("you died")
 	
-
-
+	#Projectile
+	var mouse_pos = get_global_mouse_position()  #gets location of mouse 
+	$Marker2D.look_at(mouse_pos) 
+	if Input.is_action_just_pressed("right_mouse") and shoot_cooldown:
+		shoot_cooldown =false
+		var spear_instance = spear.instantiate()
+		spear_instance.rotation = $Marker2D.rotation
+		spear_instance.global_position = $Marker2D.global_position
+		add_child(spear_instance)
+		await get_tree().create_timer(0.5).timeout
+		shoot_cooldown = true 
+		#END PROJECTILE
+#Checks if player has entered attack range of enemy
 func _on_player_hit_box_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_in_attack_range = true
 
-
+#Checks if player has exited enemy attack range
 func _on_player_hit_box_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_in_attack_range = false
-
+#enemy attacks player 
 func enemy_attack():
 	if (enemy_in_attack_range and enemy_cooldown):
 		print("damage taken")
@@ -68,11 +87,12 @@ func update_health():
 	var healthbar = $healthbar
 	healthbar.value = health
 	
-	
-
-func _on_attack_cooldown_timeout():
-	enemy_cooldown = true
-
-
-func _on_sword_hit_area_entered(_area):
+func _on_sword_hit_area_entered():
 	print("hit")
+		
+func sword_attack():
+	pass
+
+
+
+

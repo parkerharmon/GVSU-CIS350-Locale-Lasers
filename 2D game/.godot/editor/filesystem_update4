@@ -3,7 +3,8 @@ res://characters/player.tscn
 res://scenes/main_menu.tscn
 res://scenes/options_menu.tscn
 res://enemy_troll(1).tscn
-res://characters/player.gd
-res://scripts/main.gd
-res://Player/player.gd
+res://scenes/ranged_attack.tscn
+res://scripts/ranged_attack.gd
 res://Troll_Enemy.gd
+res://characters/player.gd
+res://scenes/RangedSpear.tscn

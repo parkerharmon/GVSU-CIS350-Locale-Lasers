@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmt1235jlgsh5"]
+
+[ext_resource type="Script" path="res://scripts/RangedSpear.gd" id="1_ulm04"]
+[ext_resource type="Texture2D" uid="uid://byf7iou78svc4" path="res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Weapons/Traveller Spear.png" id="2_02yq6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2j26"]
+size = Vector2(13, 4)
+
+[node name="RangedSpear" type="Area2D"]
+script = ExtResource("1_ulm04")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.999998, 9.53674e-07)
+rotation = 1.5708
+scale = Vector2(0.280923, 0.245846)
+texture = ExtResource("2_02yq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_y2j26")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.65, 0.45)
