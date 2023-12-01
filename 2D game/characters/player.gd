@@ -38,6 +38,7 @@ func _physics_process(_delta):  # underscore represents unused parameter
 	attacking = Input.is_action_pressed("attack")  # checking if player attacks
 	if attacking:
 		$AnimationTree.get("parameters/playback").travel("Attack")
+		
 
 	
 	elif velocity == Vector2.ZERO:  # If character isn't moving, aka no input we will use idle position
@@ -50,6 +51,7 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		$AnimationTree.set("parameters/Run/blend_position", velocity)
 		move_and_slide()
 		#end sword attack
+	
 	if health <=0:  # checking if player died
 		player_alive = false
 		print("you died")
@@ -87,8 +89,9 @@ func update_health():
 	var healthbar = $healthbar
 	healthbar.value = health
 	
-func _on_sword_hit_area_entered():
-	print("hit")
+func _on_sword_hit_area_entered(area):
+	if  Input.is_action_pressed("attack"):
+		print("sword attack hit")
 		
 func sword_attack():
 	pass

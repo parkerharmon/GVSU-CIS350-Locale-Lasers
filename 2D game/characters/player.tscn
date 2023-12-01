@@ -3,20 +3,21 @@
 [ext_resource type="Script" path="res://characters/player.gd" id="1_62pwa"]
 [ext_resource type="Texture2D" uid="uid://dddovpl0qecah" path="res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Player/playersprite.png" id="2_nhqkd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gdpte"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_beckr"]
 radius = 5.0
+height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t2e2"]
-size = Vector2(14, 16)
+size = Vector2(24, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33jg5"]
-size = Vector2(18, 12)
+size = Vector2(18, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5hgv"]
-size = Vector2(18, 12)
+size = Vector2(18, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wr8ec"]
-size = Vector2(11, 18)
+size = Vector2(24.5, 18)
 
 [sub_resource type="Animation" id="Animation_50mso"]
 resource_name = "Attack_Down"
@@ -790,7 +791,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r7exj"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_y3khf")
-states/Attack/position = Vector2(632.375, 215)
+states/Attack/position = Vector2(632.375, 216)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_mpeag")
 states/Idle/position = Vector2(536, 100)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_ttakh")
@@ -806,7 +807,7 @@ collision_layer = 3
 script = ExtResource("1_62pwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_gdpte")
+shape = SubResource("CapsuleShape2D_beckr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 4.76837e-07)
@@ -817,25 +818,24 @@ frame = 32
 
 [node name="Sword_Hit" type="Area2D" parent="Sprite2D"]
 unique_name_in_owner = true
-visible = false
 scale = Vector2(-1, -1)
 
 [node name="Sword_Up" type="CollisionShape2D" parent="Sprite2D/Sword_Hit"]
-position = Vector2(-2, 20)
+position = Vector2(0, 25)
 shape = SubResource("RectangleShape2D_7t2e2")
 
 [node name="Sword_Left" type="CollisionShape2D" parent="Sprite2D/Sword_Hit"]
-position = Vector2(22, 2)
+position = Vector2(20, 9.53674e-07)
 shape = SubResource("RectangleShape2D_33jg5")
 disabled = true
 
 [node name="Sword_Right" type="CollisionShape2D" parent="Sprite2D/Sword_Hit"]
-position = Vector2(-22, 2)
+position = Vector2(-20, 9.53674e-07)
 shape = SubResource("RectangleShape2D_u5hgv")
 disabled = true
 
 [node name="Sword_Down" type="CollisionShape2D" parent="Sprite2D/Sword_Hit"]
-position = Vector2(-4.5, -21)
+position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_wr8ec")
 disabled = true
 
@@ -850,9 +850,9 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_r7exj")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Attack/blend_position = Vector2(-0.00182283, 1.01852)
+parameters/Attack/blend_position = Vector2(-0.932895, 0.00428009)
 parameters/Idle/blend_position = Vector2(-0.486561, 0.619377)
-parameters/Run/blend_position = Vector2(-0.00164562, -0.972318)
+parameters/Run/blend_position = Vector2(0.276316, 0.937743)
 
 [node name="PlayerHitBox" type="Area2D" parent="."]
 
