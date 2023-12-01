@@ -13,10 +13,14 @@ var enemy_cooldown = true  # true is when enemy can attack
 ## PLAYER MOVEMENT
 
 #projectile variables
-var mouse_pos = get_global_mouse_position()  #gets location of mouse 
+#var mouse_pos = get_global_mouse_position()  #gets location of mouse 
 var shoot_cooldown = true #cooldown for ranged attack
 var spear = preload("res://scenes/RangedSpear.tscn") #references RangedSpear scene
 
+#FireBall Variables
+var fire_ball_ready = true
+var has_fire_ball = true
+var fire_ball = preload("res://scenes/fire_ball.tscn")
 
 func _physics_process(_delta):  # underscore represents unused parameter
 	var input_vector = Vector2.ZERO
@@ -56,7 +60,7 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		player_alive = false
 		print("you died")
 	
-	#Projectile
+	#Projectile Spear
 	var mouse_pos = get_global_mouse_position()  #gets location of mouse 
 	$Marker2D.look_at(mouse_pos) 
 	if Input.is_action_just_pressed("right_mouse") and shoot_cooldown:
@@ -67,7 +71,19 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		add_child(spear_instance)
 		await get_tree().create_timer(0.5).timeout
 		shoot_cooldown = true 
-		#END PROJECTILE
+		#END PROJECTILE SPEAR
+		
+	#FireBall
+	if fire_ball_ready and has_fire_ball:
+		$Marker2D.look_at(mouse_pos)
+		fire_ball_ready = false
+		var fire_ball_instance = fire_ball.instantiate()
+		fire_ball_instance.rotation = $Marker2D.rotation
+		fire_ball_instance.global_position = $Marker2D.global_position
+		add_child(fire_ball_instance)
+		await get_tree().create_timer(1).timeout
+		fire_ball_ready = true
+		
 #Checks if player has entered attack range of enemy
 func _on_player_hit_box_body_entered(body):
 	if body.has_method("enemy"):
@@ -93,6 +109,10 @@ func _on_sword_hit_area_entered(area):
 	if  Input.is_action_pressed("attack"):
 		print("sword attack hit")
 		
+#Random Location
+func Random_Location():
+	
+	pass
 func sword_attack():
 	pass
 

@@ -5,6 +5,7 @@ var speed = 300
 func _ready():
 	set_as_top_level(true)
 	
+	
 #Controls speed/movement of projectile
 func _process(delta):
 	position += (Vector2.RIGHT*speed).rotated(rotation)*delta

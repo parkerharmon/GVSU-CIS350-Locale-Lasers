@@ -58,6 +58,8 @@ func _on_troll_hit_box_area_entered(area):
 	if area.has_method("sword_attack"):
 		print("troll damage")
 		damage = 20
+	if area.has_method("fireball"):
+		damage = 100
 		
 	take_damage(damage)
 	
