@@ -105,7 +105,7 @@ func update_health():
 	var healthbar = $healthbar
 	healthbar.value = health
 	
-func _on_sword_hit_area_entered(area):
+func _on_sword_hit_area_entered(_area):
 	if  Input.is_action_pressed("attack"):
 		print("sword attack hit")
 		
