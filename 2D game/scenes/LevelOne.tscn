@@ -711,3 +711,6 @@ position = Vector2(73, 156)
 texture = ExtResource("10_gx0ng")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Spawner" type="Marker2D" parent="."]
+position = Vector2(153, 292)

@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1701471983
+::res://::1701547107
 EnemyTroll.tscn::PackedScene::601154313739671569::1698963504::0::1::::<><>::uid://bhtcyjobh7dcb::::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Monsters/Corvinian_Troll-Sheet.png
-enemy_troll(1).tscn::PackedScene::3514452896675327187::1701471951::0::1::::<><>::uid://bhtcyjobh7dcb::::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Monsters/Corvinian_Troll-Sheet.png<>res://Troll_Enemy.gd
-FireBall.gd::GDScript::-1::1701471950::0::1::::<>Area2D<>::
+enemy_troll(1).tscn::PackedScene::3514452896675327187::1701474391::0::1::::<><>::uid://bhtcyjobh7dcb::::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Monsters/Corvinian_Troll-Sheet.png<>res://Troll_Enemy.gd
+FireBall.gd::GDScript::-1::1701471997::0::1::::<>Area2D<>::
 icon.svg::CompressedTexture2D::4176939152079068513::1696879734::1701467198::1::::<><>::
 Troll_Enemy.gd::GDScript::-1::1701471462::0::1::::<>CharacterBody2D<>::
 ::res://assets/::1701467925
@@ -342,9 +342,9 @@ TX Struct.png::CompressedTexture2D::3038922231301389978::1697487991::1697487991:
 TX Tileset Grass.png::CompressedTexture2D::34269664578681581::1697487991::1697487991::1::::<><>::
 TX Tileset Stone Ground.png::CompressedTexture2D::4797586508760134924::1697487991::1697487991::1::::<><>::
 TX Tileset Wall.png::CompressedTexture2D::1813080824870170660::1697487991::1697487991::1::::<><>::
-::res://characters/::1701471951
+::res://characters/::1701474391
 player.gd::GDScript::-1::1701471382::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::8633741121425371783::1701471951::0::1::::<><>::res://characters/player.gd<>uid://dddovpl0qecah::::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Player/playersprite.png
+player.tscn::PackedScene::8633741121425371783::1701474391::0::1::::<><>::res://characters/player.gd<>uid://dddovpl0qecah::::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Player/playersprite.png
 ::res://git_sha_project_setting/::1701028092
 export_plugin.gd::GDScript::-1::1701028092::0::1::::<>EditorExportPlugin<>::
 LICENSE.md::TextFile::-1::1701028092::0::1::::<><>::
@@ -356,12 +356,14 @@ README.md::TextFile::-1::1701028092::0::1::::<><>::
 utils.gd::GDScript::-1::1701028092::0::1::::<>RefCounted<>::
 ::res://Player/::1697487990
 player.gd::GDScript::-1::1696905528::0::1::::<>CharacterBody2D<>::
-::res://scenes/::1701471951
-fire_ball.tscn::PackedScene::5729231646506014663::1701471745::0::1::::<><>::res://FireBall.gd<>uid://wsv58mf3wiji::::res://assets/Shikashi's Fantasy Icons Pack v2/#1 - Transparent Icons.png
-LevelOne.tscn::PackedScene::5137009997063877739::1701471950::0::1::::<><>::uid://dvaipp2827dv8::::res://characters/player.tscn<>uid://quofk7syblt::::res://assets/TX pack/TX Tileset Grass.png<>uid://cal8swqrsq5gi::::res://assets/TX pack/TX Tileset Stone Ground.png<>uid://03jf817i4133::::res://assets/TX pack/TX Tileset Wall.png<>uid://bjkcuttdw3wr7::::res://assets/TX pack/TX Struct.png<>uid://cpjklpx5yh3c5::::res://assets/TX pack/TX Props.png<>uid://branlk5tqg2ym::::res://assets/TX pack/TX Plant.png<>uid://d4kncmn4ythjo::::res://assets/TX pack/TX Shadow Plant.png<>uid://bqcor40xvdmp4::::res://enemy_troll(1).tscn<>uid://c1wq5j4sl36lh::::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Misc_Tiles/Stone.png
-main_menu.tscn::PackedScene::7242932770187699277::1701471951::0::1::::<><>::
-options_menu.tscn::PackedScene::6193165452146124511::1701471951::0::1::::<><>::
-RangedSpear.tscn::PackedScene::8042379727731999700::1701471951::0::1::::<><>::res://scripts/RangedSpear.gd<>uid://byf7iou78svc4::::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Weapons/Traveller Spear.png
+::res://scenes/::1701474391
+fire_ball.tscn::PackedScene::5729231646506014663::1701474391::0::1::::<><>::res://FireBall.gd<>uid://wsv58mf3wiji::::res://assets/Shikashi's Fantasy Icons Pack v2/#1 - Transparent Icons.png
+LevelOne.gd::GDScript::-1::1701473862::0::1::::<>Node2D<>::
+LevelOne.tscn::PackedScene::5137009997063877739::1701474390::0::1::::<><>::uid://dvaipp2827dv8::::res://characters/player.tscn<>res://scenes/LevelOne.gd<>uid://quofk7syblt::::res://assets/TX pack/TX Tileset Grass.png<>uid://cal8swqrsq5gi::::res://assets/TX pack/TX Tileset Stone Ground.png<>uid://03jf817i4133::::res://assets/TX pack/TX Tileset Wall.png<>uid://bjkcuttdw3wr7::::res://assets/TX pack/TX Struct.png<>uid://cpjklpx5yh3c5::::res://assets/TX pack/TX Props.png<>uid://branlk5tqg2ym::::res://assets/TX pack/TX Plant.png<>uid://d4kncmn4ythjo::::res://assets/TX pack/TX Shadow Plant.png<>uid://bqcor40xvdmp4::::res://enemy_troll(1).tscn<>uid://c1wq5j4sl36lh::::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Misc_Tiles/Stone.png
+main_menu.tscn::PackedScene::7242932770187699277::1701474391::0::1::::<><>::
+options_menu.tscn::PackedScene::6193165452146124511::1701474391::0::1::::<><>::
+RangedSpear.tscn::PackedScene::8042379727731999700::1701474391::0::1::::<><>::res://scripts/RangedSpear.gd<>uid://byf7iou78svc4::::res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Weapons/Traveller Spear.png
+Spawner.gd::GDScript::-1::1701474139::0::1::::<>Node2D<>::
 world.tscn::PackedScene::112048867147839475::1697487991::0::1::::<><>::uid://bv5027y84wakd::::res://Player/player.tscn<>uid://cbw0ggcp6366t::::res://P_P_FREE_RPG_TILESET/P_P_FREE_RPG_TILESET/Island_24x24.png
 ::res://scripts/::1701471950
 main.gd::GDScript::-1::1697487991::0::1::::<>Node2D<>::

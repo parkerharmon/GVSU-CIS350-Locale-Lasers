@@ -83,7 +83,7 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		add_child(fire_ball_instance)
 		await get_tree().create_timer(1).timeout
 		fire_ball_ready = true
-		
+		#ENDS FIREBALL
 #Checks if player has entered attack range of enemy
 func _on_player_hit_box_body_entered(body):
 	if body.has_method("enemy"):
