@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var player = get_tree().get_first_node_in_group("player")
 var health = 50
 var dead = false
+var slimeball_ready = true
+var slimeball = preload("res://scenes/slimeball.tscn")
 
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
@@ -11,9 +13,22 @@ func _physics_process(_delta):
 	$AnimationTree.get("parameters/playback").travel("Walk")
 	$AnimationTree.set("parameters/Walk/blend_position", direction)
 	move_and_slide()
+	
+	#SlimeBall Attack
+	if slimeball_ready:
+		$Marker2D.look_at(player.global_position)
+		slimeball_ready = false
+		var slimeball_instance = slimeball.instantiate()
+		slimeball_instance.rotation = $Marker2D.rotation
+		slimeball_instance.global_position = $Marker2D.global_position
+		add_child(slimeball_instance)
+		await get_tree().create_timer(1).timeout
+		slimeball_ready = true
 
 func take_damage(dmg):
 	health = health - dmg
+	if health <= 0:
+		death()
 
 
 func _on_slime_hitbox_area_entered(area):
