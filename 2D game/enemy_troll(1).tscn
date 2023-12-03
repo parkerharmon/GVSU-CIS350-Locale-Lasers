@@ -198,7 +198,7 @@ states/Walk/position = Vector2(616, 100)
 transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_ebus4")]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6rvxl"]
-radius = 68.4471
+radius = 82.0061
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_moqd1"]
 radius = 13.0

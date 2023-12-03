@@ -9,6 +9,8 @@ func _ready():
 #Controls speed/movement of projectile
 func _process(delta):
 	position += (Vector2.RIGHT*speed).rotated(rotation)*delta
+	await get_tree().create_timer(2.5).timeout
+	queue_free()
 	
 	
 func fireball():
