@@ -1,9 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbgsbrp1x6iu4"]
+[gd_scene load_steps=3 format=3 uid="uid://dbgsbrp1x6iu4"]
+
+[ext_resource type="FontFile" uid="uid://bvtuo8s01fntt" path="res://assets/Adventurer.ttf" id="1_s0ted"]
 
 [sub_resource type="GDScript" id="GDScript_8k7jq"]
 script/source = "# Main Menu Script
 
 extends Control
+
+@onready var selector_one = $MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
+@onready var selector_two = $MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector
+@onready var selector_three = $MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/Selector
+
+var current_selection = 0
+func _ready():
+	set_current_selection(0)
+	
+func _process(delta):
+	if Input.is_action_just_pressed(\"down\") and current_selection < 2:
+		current_selection += 1
+		set_current_selection(current_selection)
+	if Input.is_action_just_pressed(\"up\") and current_selection > 0:
+		current_selection -= 1
+		set_current_selection(current_selection)
+	if Input.is_action_just_pressed(\"attack\"):
+		if current_selection == 0:
+			get_tree().change_scene_to_file(\"res://scenes/LevelOne.tscn\")
+		if current_selection == 1:
+			get_tree().change_scene_to_file(\"res://scenes/options_menu.tscn\")
+		if current_selection == 2:
+			get_tree().quit
+			
+	
+func set_current_selection(_current_selection):
+	selector_one.text = \"\"
+	selector_two.text = \"\"
+	selector_three.text = \"\"
+	if _current_selection == 0:
+		selector_one.text = \">\"
+	if _current_selection == 1:
+		selector_two.text = \">\"
+	if _current_selection == 2:
+		selector_three.text = \">\"	
+
+
 
 func _on_play_pressed():
 	get_tree().change_scene_to_file(\"res://scenes/LevelOne.tscn\")
@@ -26,26 +65,87 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_8k7jq")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.627451, 0.117647, 0.25098, 1)
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
-text = "Play"
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Options"
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
-text = "Exit"
+theme_override_fonts/font = ExtResource("1_s0ted")
+text = "Naked Man Against the World"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Selector" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s0ted")
+text = ">"
+
+[node name="Start" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s0ted")
+text = "Start    "
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+layout_mode = 2
+
+[node name="Selector" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s0ted")
+text = ">"
+
+[node name="Options" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s0ted")
+text = "Option  "
+
+[node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+layout_mode = 2
+
+[node name="Selector" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s0ted")
+text = ">"
+
+[node name="Exit" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s0ted")
+text = " Exit     "

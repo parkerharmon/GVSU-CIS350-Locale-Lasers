@@ -1969,7 +1969,7 @@ rotation_smoothing_speed = 3.0
 position = Vector2(858, 286)
 
 [node name="Stone" type="Sprite2D" parent="."]
-position = Vector2(73, 156)
+position = Vector2(74, 139)
 texture = ExtResource("10_gx0ng")
 
 [node name="Timer" type="Timer" parent="."]
@@ -1985,3 +1985,27 @@ position = Vector2(1090, 130)
 
 [node name="Slime_enemy" parent="." instance=ExtResource("12_jm7nf")]
 position = Vector2(573, 195)
+
+[node name="Stone2" type="Sprite2D" parent="."]
+position = Vector2(114, 139)
+texture = ExtResource("10_gx0ng")
+
+[node name="Stone3" type="Sprite2D" parent="."]
+position = Vector2(85, 178)
+texture = ExtResource("10_gx0ng")
+
+[node name="Stone4" type="Sprite2D" parent="."]
+position = Vector2(72, 169)
+texture = ExtResource("10_gx0ng")
+
+[node name="Stone5" type="Sprite2D" parent="."]
+position = Vector2(100, 178)
+texture = ExtResource("10_gx0ng")
+
+[node name="Stone6" type="Sprite2D" parent="."]
+position = Vector2(114, 172)
+texture = ExtResource("10_gx0ng")
+
+[node name="Stone7" type="Sprite2D" parent="."]
+position = Vector2(94, 155)
+texture = ExtResource("10_gx0ng")
