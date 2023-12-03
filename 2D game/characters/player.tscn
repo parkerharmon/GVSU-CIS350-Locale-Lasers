@@ -802,7 +802,7 @@ graph_offset = Vector2(-352, 54.4811)
 
 [sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_iqyt2"]
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_62pwa")
 
