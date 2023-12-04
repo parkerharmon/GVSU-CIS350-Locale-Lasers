@@ -1,10 +1,11 @@
-[gd_scene load_steps=44 format=3 uid="uid://dvaipp2827dv8"]
+[gd_scene load_steps=45 format=3 uid="uid://dvaipp2827dv8"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_62pwa"]
 [ext_resource type="Texture2D" uid="uid://dddovpl0qecah" path="res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Player/playersprite.png" id="2_nhqkd"]
+[ext_resource type="PackedScene" uid="uid://l4npu0q0gc50" path="res://Utility/hurt_box.tscn" id="3_6v3ka"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_beckr"]
-radius = 5.0
+radius = 3.0
 height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t2e2"]
@@ -800,7 +801,8 @@ states/Start/position = Vector2(196, 100)
 transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_e7dhi"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_874hn"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_rf8md"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_v0tyx"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_wx3rq")]
 graph_offset = Vector2(-352, 54.4811)
 
-[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_iqyt2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tle06"]
+size = Vector2(6, 10)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
@@ -818,6 +820,7 @@ frame = 32
 
 [node name="Sword_Hit" type="Area2D" parent="Sprite2D"]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(-1, -1)
 
 [node name="Sword_Up" type="CollisionShape2D" parent="Sprite2D/Sword_Hit"]
@@ -854,15 +857,6 @@ parameters/Attack/blend_position = Vector2(-0.932895, 0.00428009)
 parameters/Idle/blend_position = Vector2(-0.486561, 0.619377)
 parameters/Run/blend_position = Vector2(0.276316, 0.937743)
 
-[node name="PlayerHitBox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
-position = Vector2(-6, -2)
-shape = SubResource("ConcavePolygonShape2D_iqyt2")
-
-[node name="attack_cooldown" type="Timer" parent="."]
-wait_time = 0.134
-
 [node name="healthbar" type="ProgressBar" parent="."]
 modulate = Color(1, 0.156863, 0.129412, 1)
 offset_left = -6.0
@@ -874,7 +868,14 @@ show_percentage = false
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
+[node name="HurtBox" parent="." instance=ExtResource("3_6v3ka")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_tle06")
+
 [connection signal="area_entered" from="Sprite2D/Sword_Hit" to="." method="_on_sword_hit_area_entered"]
-[connection signal="body_entered" from="PlayerHitBox" to="." method="_on_player_hit_box_body_entered"]
-[connection signal="body_exited" from="PlayerHitBox" to="." method="_on_player_hit_box_body_exited"]
-[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]

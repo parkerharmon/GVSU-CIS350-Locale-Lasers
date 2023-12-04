@@ -1,10 +1,8 @@
 extends CharacterBody2D
 # main player character
 
-@export var Speed: int = 50
-@export var Friction: float = 0.15
-@export var Acceleration: int = 40
 @export var move_speed : float = 100
+@onready var healthbar = $healthbar
 
 var enemy_in_attack_range = false
 var health = 100
@@ -28,7 +26,7 @@ func _physics_process(_delta):  # underscore represents unused parameter
 	x.x = -1
 	x.y = 1
 	var attacking = false
-	enemy_attack()
+	#enemy_attack()
 	update_health()
 	
 	# get input direction
@@ -58,7 +56,7 @@ func _physics_process(_delta):  # underscore represents unused parameter
 	
 	if health <=0:  # checking if player died
 		player_alive = false
-		print("you died")
+		get_tree().change_scene_to_file("res://scenes/Death_Scene.tscn")
 	
 	#Projectile Spear
 	var mouse_pos = get_global_mouse_position()  #gets location of mouse 
@@ -83,38 +81,36 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		add_child(fire_ball_instance)
 		await get_tree().create_timer(1).timeout
 		fire_ball_ready = true
-		#ENDS FIREBALL
-#Checks if player has entered attack range of enemy
-func _on_player_hit_box_body_entered(body):
-	if body.has_method("enemy"):
-		enemy_in_attack_range = true
+	#ENDS FIREBALL
+	
 
-#Checks if player has exited enemy attack range
-func _on_player_hit_box_body_exited(body):
-	if body.has_method("enemy"):
-		enemy_in_attack_range = false
-#enemy attacks player 
-func enemy_attack():
-	if (enemy_in_attack_range and enemy_cooldown):
-		print("damage taken")
-		health = health-10
-		enemy_cooldown = false
-		$attack_cooldown.start()
+# HURTING THE PLAYER
+func _on_hurt_box_hurt(damage):
+	health -= damage
+	print(health)
 
+
+# UPDATING PLAYER HEALTH
 func update_health():
-	var healthbar = $healthbar
 	healthbar.value = health
 	
 func _on_sword_hit_area_entered(_area):
 	if  Input.is_action_pressed("attack"):
 		print("sword attack hit")
 		
+
+
+
+
 #Random Location
 func Random_Location():
-	
 	pass
+	
 func sword_attack():
 	pass
+
+
+
 
 
 

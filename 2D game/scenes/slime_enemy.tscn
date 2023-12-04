@@ -169,4 +169,14 @@ shape = SubResource("CapsuleShape2D_6wnhy")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(2, 3)
 
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(1, 0.156863, 0.129412, 1)
+offset_left = -5.0
+offset_top = 17.0
+offset_right = 135.0
+offset_bottom = 44.0
+scale = Vector2(0.1, 0.1)
+max_value = 80.0
+show_percentage = false
+
 [connection signal="area_entered" from="slime_hitbox" to="." method="_on_slime_hitbox_area_entered"]

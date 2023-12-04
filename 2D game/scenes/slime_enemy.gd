@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var movement_speed = 20.0
 @onready var player = get_tree().get_first_node_in_group("player")
-var health = 50
+@export var health = 80
 var dead = false
 var slimeball_ready = true
 var slimeball = preload("res://scenes/slimeball.tscn")
@@ -13,6 +13,7 @@ func _physics_process(_delta):
 	$AnimationTree.get("parameters/playback").travel("Walk")
 	$AnimationTree.set("parameters/Walk/blend_position", direction)
 	move_and_slide()
+	update_health()
 	
 	#SlimeBall Attack
 	if slimeball_ready:
@@ -24,6 +25,16 @@ func _physics_process(_delta):
 		add_child(slimeball_instance)
 		await get_tree().create_timer(1).timeout
 		slimeball_ready = true
+
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	
+	if health >= 80:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+
 
 func take_damage(dmg):
 	health = health - dmg
