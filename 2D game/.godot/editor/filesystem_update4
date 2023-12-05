@@ -9,8 +9,5 @@ res://scenes/slime_enemy.tscn
 res://scenes/slimeball.tscn
 res://Utility/hitbox.tscn
 res://Utility/hurt_box.tscn
-res://characters/player.gd
 res://scenes/Death_Scene.tscn
-res://scenes/Death_Scene.gd
-res://Troll_Enemy.gd
-res://scenes/slime_enemy.gd
+res://scenes/LevelOne.gd
