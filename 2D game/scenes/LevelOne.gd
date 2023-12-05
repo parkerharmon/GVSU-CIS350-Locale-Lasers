@@ -23,7 +23,7 @@ func troll_spawn(x):
 		
 		
 	
-	if x == 2 and Enemy_Spawn:
+	if x == 1 and Enemy_Spawn:
 		Enemy_Spawn = false
 		var troll_instance = enemy_troll.instantiate()
 		enemy_troll.instantiate()
@@ -35,7 +35,7 @@ func troll_spawn(x):
 		
 		
 		
-	if x == 3 and Enemy_Spawn:
+	if x == 1 and Enemy_Spawn:
 		Enemy_Spawn = false
 		var troll_instance = enemy_troll.instantiate()
 		enemy_troll.instantiate()
@@ -49,9 +49,6 @@ func update_spawn_time(round):
 		spawn_count = 0
 
 func _on_timer_2_timeout():
-	#x+=1
-	if x==4:
-		x=1
 	troll_spawn(x)
 	if spawn_time>5:
 		spawn_time -= .5
