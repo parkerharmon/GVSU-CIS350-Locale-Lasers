@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2lopbtpn3wg"]
+[gd_scene load_steps=6 format=3 uid="uid://c2lopbtpn3wg"]
 
 [ext_resource type="Script" path="res://Slimeball.gd" id="1_6khs3"]
 [ext_resource type="Texture2D" uid="uid://wsv58mf3wiji" path="res://assets/Shikashi's Fantasy Icons Pack v2/#1 - Transparent Icons.png" id="2_1mp4x"]
+[ext_resource type="PackedScene" uid="uid://bj5v3x8wrnn2r" path="res://Utility/hitbox.tscn" id="3_clmkd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g7bm4"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bop5x"]
 radius = 4.0
 
 [node name="Area2D" type="Area2D"]
@@ -19,3 +23,12 @@ frame = 290
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g7bm4")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_clmkd")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_bop5x")
+
+[editable path="Hitbox"]

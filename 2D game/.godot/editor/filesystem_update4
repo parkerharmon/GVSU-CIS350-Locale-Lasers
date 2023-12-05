@@ -1,4 +1,5 @@
 res://scenes/LevelOne.tscn
+res://Utility/enemy_spawner.gd
 res://characters/player.tscn
 res://scenes/main_menu.tscn
 res://scenes/options_menu.tscn
@@ -9,5 +10,4 @@ res://scenes/slime_enemy.tscn
 res://scenes/slimeball.tscn
 res://Utility/hitbox.tscn
 res://Utility/hurt_box.tscn
-res://scenes/Death_Scene.tscn
-res://scenes/LevelOne.gd
+res://Utility/enemy_spawner.tscn

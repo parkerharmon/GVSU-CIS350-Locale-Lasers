@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://branlk5tqg2ym" path="res://assets/TX pack/TX Plant.png" id="7_wc3pc"]
 [ext_resource type="Texture2D" uid="uid://d4kncmn4ythjo" path="res://assets/TX pack/TX Shadow Plant.png" id="8_1grhe"]
 [ext_resource type="PackedScene" uid="uid://bqcor40xvdmp4" path="res://enemy_troll(1).tscn" id="9_fgs6q"]
-[ext_resource type="Texture2D" uid="uid://c1wq5j4sl36lh" path="res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Misc_Tiles/Stone.png" id="10_gx0ng"]
+[ext_resource type="PackedScene" uid="uid://bfo7yxq7ua7jf" path="res://Utility/enemy_spawner.tscn" id="12_doub2"]
 [ext_resource type="PackedScene" uid="uid://dwwsw338vukut" path="res://scenes/slime_enemy.tscn" id="12_jm7nf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7q205"]
@@ -1968,50 +1968,24 @@ rotation_smoothing_speed = 3.0
 [node name="EnemyTroll" parent="." instance=ExtResource("9_fgs6q")]
 position = Vector2(858, 286)
 
-[node name="Stone" type="Sprite2D" parent="."]
-position = Vector2(74, 139)
-texture = ExtResource("10_gx0ng")
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Spawner2" type="Marker2D" parent="."]
 position = Vector2(95, 86)
 
 [node name="Spawner3" type="Marker2D" parent="."]
-position = Vector2(435, 560)
+position = Vector2(813, 836)
 
 [node name="Spawner" type="Marker2D" parent="."]
-position = Vector2(1090, 130)
+position = Vector2(1506, 92)
 
 [node name="Slime_enemy" parent="." instance=ExtResource("12_jm7nf")]
 position = Vector2(573, 195)
 
-[node name="Stone2" type="Sprite2D" parent="."]
-position = Vector2(1092, 146)
-texture = ExtResource("10_gx0ng")
-
-[node name="Stone3" type="Sprite2D" parent="."]
-position = Vector2(85, 178)
-texture = ExtResource("10_gx0ng")
-
-[node name="Stone4" type="Sprite2D" parent="."]
-position = Vector2(72, 169)
-texture = ExtResource("10_gx0ng")
-
-[node name="Stone5" type="Sprite2D" parent="."]
-position = Vector2(100, 178)
-texture = ExtResource("10_gx0ng")
-
-[node name="Stone6" type="Sprite2D" parent="."]
-position = Vector2(114, 172)
-texture = ExtResource("10_gx0ng")
-
-[node name="Stone7" type="Sprite2D" parent="."]
-position = Vector2(94, 155)
-texture = ExtResource("10_gx0ng")
-
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 1.415
 autostart = true
+
+[node name="EnemySpawner" parent="." instance=ExtResource("12_doub2")]
 
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
