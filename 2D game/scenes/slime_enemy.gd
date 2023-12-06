@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 @export var movement_speed = 20.0
 @onready var player = get_tree().get_first_node_in_group("player")
-@export var health = 80
+@export var health = 65
 var dead = false
 var slimeball_ready = true
 var slimeball = preload("res://scenes/slimeball.tscn")
+
 
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
@@ -43,15 +44,19 @@ func take_damage(dmg):
 
 
 func _on_slime_hitbox_area_entered(area):
+	var player_level_damage = 2
 	var damage = 0
+	if area.has_method("beartrap"):
+		death()
 	if area.has_method("RangedSpear"):
 		damage = 10
-	if area.has_method("sword_attack"):
-		damage = 20
 	if area.has_method("fireball"):
 		damage = 20
-	take_damage(damage)
+	player_level_damage = player_level_damage * player.experience_level
+	take_damage(damage + player_level_damage)
 	
 func death():
 	dead = true
 	queue_free()
+func enemy():
+	pass

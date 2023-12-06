@@ -134,7 +134,7 @@ transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition
 radius = 5.0
 height = 22.0
 
-[node name="Slime_enemy" type="CharacterBody2D"]
+[node name="Slime_enemy" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 script = ExtResource("1_idivk")
 

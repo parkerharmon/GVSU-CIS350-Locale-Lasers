@@ -6,9 +6,10 @@ extends CharacterBody2D
 
 # experience variables
 var experience = 0
-var experience_level = 1
+@export var experience_level = 1
 var collected_experience = 0
 var time = 0
+var minute = 0
 
 # GUI
 @onready var lblLevel = get_node("%Label_Level")
@@ -27,8 +28,13 @@ var spear = preload("res://scenes/RangedSpear.tscn") #references RangedSpear sce
 
 #FireBall Variables
 var fire_ball_ready = true
-var has_fire_ball = true
+var has_fire_ball = false
 var fire_ball = preload("res://scenes/fire_ball.tscn")
+
+#Beartrap variables
+var beartrap_ready = true
+var has_beartrap = false
+var beartrap = preload("res://scenes/Bear_trap.tscn")
 
 func _physics_process(_delta):  # underscore represents unused parameter
 	var input_vector = Vector2.ZERO
@@ -82,6 +88,8 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		#END PROJECTILE SPEAR
 		
 	#FireBall
+	if experience_level >= 5:
+		has_fire_ball = true
 	if fire_ball_ready and has_fire_ball:
 		$Marker2D.look_at(mouse_pos)
 		fire_ball_ready = false
@@ -93,7 +101,19 @@ func _physics_process(_delta):  # underscore represents unused parameter
 		fire_ball_ready = true
 	#ENDS FIREBALL
 	
-
+	#Beartrap
+	if Input.is_action_just_pressed("e"):
+		if experience_level >= 3:
+			has_beartrap = true
+		if beartrap_ready and has_beartrap:
+			beartrap_ready = false
+			var beartrap_instance = beartrap.instantiate()
+			beartrap_instance.global_position = $Marker2D.global_position
+			add_child(beartrap_instance)
+			await get_tree().create_timer(4).timeout
+			beartrap_ready = true
+	#END BEARTRAP
+	
 # HURTING THE PLAYER
 func _on_hurt_box_hurt(damage):
 	health -= damage
@@ -134,6 +154,10 @@ func calculate_experience(dust_exp):
 	if experience + collected_experience >= exp_required: # leveling up
 		collected_experience -= exp_required-experience
 		experience_level+=1
+		if health <= 80:
+			health += 20
+		else:
+			health = 100
 		lblLevel.text = str("Level", experience_level)
 		experience = 0
 		exp_required = calculate_experiencecap()
@@ -141,7 +165,7 @@ func calculate_experience(dust_exp):
 	else:
 		experience += collected_experience
 		collected_experience
-		
+	
 
 	
 func calculate_experiencecap():
@@ -158,6 +182,9 @@ func calculate_experiencecap():
 
 func _on_game_timer_timeout():
 	time+=1
-	lblTimer.text = str("Time:", time)
+	if time == 60:
+		time = 0
+		minute += 1
+	lblTimer.text = str("Time:",minute,":", time)
 	if time == 600:
 		get_tree().change_scene_to_file("res://scenes/you_win.tscn")

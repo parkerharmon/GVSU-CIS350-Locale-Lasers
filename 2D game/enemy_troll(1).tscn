@@ -206,7 +206,7 @@ height = 34.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqsjc"]
 size = Vector2(18, 26)
 
-[node name="EnemyTroll" type="CharacterBody2D"]
+[node name="EnemyTroll" type="CharacterBody2D" groups=["enemy"]]
 position = Vector2(276, 78)
 script = ExtResource("2_71iau")
 

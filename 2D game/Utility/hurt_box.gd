@@ -25,3 +25,5 @@ func _on_area_entered(area):
 
 func _on_disable_timer_timeout():
 	collision.call_deferred("set","disabled",false)
+
+

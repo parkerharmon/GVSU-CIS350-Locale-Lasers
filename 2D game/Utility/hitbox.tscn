@@ -14,6 +14,8 @@ func tempdisable():
 
 func _on_disable_hit_box_timer_timeout():
 	collision.call_deferred(\"set\",\"disabled\",false)
+	
+
 "
 
 [node name="Hitbox" type="Area2D" groups=["attack"]]

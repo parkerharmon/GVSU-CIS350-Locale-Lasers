@@ -8,7 +8,7 @@ var dead = false
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
 @export var movement_speed = 40.0
 @onready var player = get_tree().get_first_node_in_group("player")
-
+var player_level_damage
 var exp_dust = preload("res://objects/experience_dust.tscn")
 
 func _physics_process(_delta):
@@ -44,16 +44,16 @@ func take_damage(dmg):
 	
 
 func _on_troll_hit_box_area_entered(area):
+	player_level_damage = 2
 	var damage = 0
+	if area.has_method("beartrap"):
+		damage = 90
 	if area.has_method("RangedSpear"):
 		damage = 10
-	if area.has_method("sword_attack"):
-		print("troll damage")
-		damage = 20
 	if area.has_method("fireball"):
 		damage = 20
-		
-	take_damage(damage)
+	player_level_damage = player_level_damage * player.experience_level
+	take_damage(damage + player_level_damage)
 	
 func death():
 	dead = true
