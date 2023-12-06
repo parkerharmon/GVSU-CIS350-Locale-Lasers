@@ -23,7 +23,7 @@ func _physics_process(_delta):
 		slimeball_instance.rotation = $Marker2D.rotation
 		slimeball_instance.global_position = $Marker2D.global_position
 		add_child(slimeball_instance)
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(3).timeout
 		slimeball_ready = true
 
 func update_health():

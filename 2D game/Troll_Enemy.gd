@@ -4,9 +4,12 @@ extends CharacterBody2D
 @export var health = 100
 var projectile = null
 var dead = false
-
+@export var experience = 1
+@onready var loot_base = get_tree().get_first_node_in_group("loot")
 @export var movement_speed = 40.0
 @onready var player = get_tree().get_first_node_in_group("player")
+
+var exp_dust = preload("res://objects/experience_dust.tscn")
 
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
@@ -54,4 +57,8 @@ func _on_troll_hit_box_area_entered(area):
 	
 func death():
 	dead = true
+	var new_dust = exp_dust.instantiate()
+	new_dust.global_position = $CollisionShape2D.global_position
+	new_dust.experience = experience
+	get_tree().get_root().add_child(new_dust)
 	queue_free()

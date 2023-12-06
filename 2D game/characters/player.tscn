@@ -1,8 +1,9 @@
-[gd_scene load_steps=45 format=3 uid="uid://dvaipp2827dv8"]
+[gd_scene load_steps=48 format=3 uid="uid://dvaipp2827dv8"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_62pwa"]
 [ext_resource type="Texture2D" uid="uid://dddovpl0qecah" path="res://assets/100-Sub-Assets-Free/100-Sub-Assets-Free/Player/playersprite.png" id="2_nhqkd"]
 [ext_resource type="PackedScene" uid="uid://l4npu0q0gc50" path="res://Utility/hurt_box.tscn" id="3_6v3ka"]
+[ext_resource type="FontFile" uid="uid://bvtuo8s01fntt" path="res://assets/Adventurer.ttf" id="5_cbixt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_beckr"]
 radius = 3.0
@@ -804,6 +805,12 @@ graph_offset = Vector2(-352, 54.4811)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tle06"]
 size = Vector2(6, 10)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_eedft"]
+radius = 43.0116
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ee52a"]
+radius = 4.0
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_62pwa")
@@ -875,7 +882,59 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("RectangleShape2D_tle06")
 
+[node name="GrabArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+shape = SubResource("CircleShape2D_eedft")
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+shape = SubResource("CircleShape2D_ee52a")
+
+[node name="GUI_Layer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="GUI_Layer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label_Level" type="Label" parent="GUI_Layer/GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 51.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("5_cbixt")
+text = "Level: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_Timer" type="Label" parent="GUI_Layer/GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_cbixt")
+text = "Time: "
+
+[node name="Game_Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="area_entered" from="Sprite2D/Sword_Hit" to="." method="_on_sword_hit_area_entered"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
+[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
+[connection signal="timeout" from="Game_Timer" to="." method="_on_game_timer_timeout"]
 
 [editable path="HurtBox"]

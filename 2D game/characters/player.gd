@@ -4,10 +4,20 @@ extends CharacterBody2D
 @export var move_speed : float = 100
 @onready var healthbar = $healthbar
 
-var enemy_in_attack_range = false
+# experience variables
+var experience = 0
+var experience_level = 1
+var collected_experience = 0
+var time = 0
+
+# GUI
+@onready var lblLevel = get_node("%Label_Level")
+@onready var lblTimer = get_node("%Label_Timer")
+
+# player stats
 var health = 100
 var player_alive = true
-var enemy_cooldown = true  # true is when enemy can attack
+
 ## PLAYER MOVEMENT
 
 #projectile variables
@@ -87,7 +97,7 @@ func _physics_process(_delta):  # underscore represents unused parameter
 # HURTING THE PLAYER
 func _on_hurt_box_hurt(damage):
 	health -= damage
-	print(health)
+	
 
 
 # UPDATING PLAYER HEALTH
@@ -99,19 +109,55 @@ func _on_sword_hit_area_entered(_area):
 		print("sword attack hit")
 		
 
-
-
-
 #Random Location
 func Random_Location():
 	pass
 	
 func sword_attack():
 	pass
+	
+
+# Item functions
+func _on_grab_area_area_entered(area):
+	if area.is_in_group("loot"):
+		area.target = self
 
 
+func _on_collect_area_area_entered(area):
+	if area.is_in_group("loot"):
+		var dust_exp = area.collect()
+		calculate_experience(dust_exp)
 
+func calculate_experience(dust_exp):
+	var exp_required = calculate_experiencecap()
+	collected_experience += dust_exp
+	if experience + collected_experience >= exp_required: # leveling up
+		collected_experience -= exp_required-experience
+		experience_level+=1
+		lblLevel.text = str("Level", experience_level)
+		experience = 0
+		exp_required = calculate_experiencecap()
+		calculate_experience(0) # loop again to make sure we can account for double level ups
+	else:
+		experience += collected_experience
+		collected_experience
+		
 
+	
+func calculate_experiencecap():
+	var exp_cap = experience_level
+	if experience_level < 20:
+		exp_cap = experience_level*4
+	elif experience_level < 40:
+		exp_cap = 95 * (experience_level-19) * 8
+	else:
+		exp_cap = 255 + (experience_level-39) * 12
+	return exp_cap
+	
+# end Item functions
 
-
-
+func _on_game_timer_timeout():
+	time+=1
+	lblTimer.text = str("Time:", time)
+	if time == 600:
+		get_tree().change_scene_to_file("res://scenes/you_win.tscn")

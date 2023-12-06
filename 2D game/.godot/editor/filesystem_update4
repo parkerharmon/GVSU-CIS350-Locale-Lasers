@@ -1,6 +1,8 @@
-res://scenes/LevelOne.tscn
-res://Utility/enemy_spawner.gd
 res://characters/player.tscn
+res://Utility/enemy_spawner.gd
+res://characters/player.gd
+res://scenes/LevelOne.tscn
+res://objects/experience_dust.tscn
 res://scenes/main_menu.tscn
 res://scenes/options_menu.tscn
 res://enemy_troll(1).tscn
@@ -11,3 +13,6 @@ res://scenes/slimeball.tscn
 res://Utility/hitbox.tscn
 res://Utility/hurt_box.tscn
 res://Utility/enemy_spawner.tscn
+res://Game_Win.gd
+res://scenes/game_win.tscn
+res://scenes/Death_Scene.tscn

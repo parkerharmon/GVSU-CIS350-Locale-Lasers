@@ -17,7 +17,7 @@ func _on_timer_timeout():
 				i.spawn_delay_counter += 1
 			else:  
 				i.spawn_delay_counter = 0
-				var new_enemy = load(str(i.enemy.resource_path)) # loads the scene of the desired enemy to be spawned
+				var new_enemy = i.enemy # loads the scene of the desired enemy to be spawned
 				var counter = 0
 				while counter < i.enemy_num: # spawning the enemies within the current wave at random positions on the map
 					var enemy_spawn = new_enemy.instantiate() # creating instance of new enemy
