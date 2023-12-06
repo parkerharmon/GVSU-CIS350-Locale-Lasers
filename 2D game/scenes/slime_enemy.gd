@@ -50,10 +50,13 @@ func _on_slime_hitbox_area_entered(area):
 		death()
 	if area.has_method("RangedSpear"):
 		damage = 10
+		player_level_damage = player_level_damage * player.experience_level
+		take_damage(damage + player_level_damage)
 	if area.has_method("fireball"):
 		damage = 20
-	player_level_damage = player_level_damage * player.experience_level
-	take_damage(damage + player_level_damage)
+		player_level_damage = player_level_damage * player.experience_level
+		take_damage(damage + player_level_damage)
+	
 	
 func death():
 	dead = true
