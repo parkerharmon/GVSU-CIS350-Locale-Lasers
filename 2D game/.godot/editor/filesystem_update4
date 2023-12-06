@@ -15,5 +15,3 @@ res://Utility/enemy_spawner.tscn
 res://scenes/game_win.tscn
 res://scenes/Death_Scene.tscn
 res://scenes/Bear_trap.tscn
-res://scenes/Bear_trap.gd
-res://characters/player.gd

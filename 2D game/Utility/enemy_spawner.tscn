@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfo7yxq7ua7jf"]
+[gd_scene load_steps=11 format=3 uid="uid://bfo7yxq7ua7jf"]
 
 [ext_resource type="Script" path="res://Utility/enemy_spawner.gd" id="1_ni3n6"]
 [ext_resource type="PackedScene" uid="uid://dwwsw338vukut" path="res://scenes/slime_enemy.tscn" id="2_i16io"]
@@ -16,7 +16,7 @@ enemy_spawn_delay = 1
 [sub_resource type="Resource" id="Resource_ls1h3"]
 script = ExtResource("3_6i34u")
 time_start = 20
-time_end = 300
+time_end = 90
 enemy = ExtResource("2_i16io")
 enemy_num = 1
 enemy_spawn_delay = 2
@@ -42,12 +42,20 @@ script = ExtResource("3_6i34u")
 time_start = 300
 time_end = 600
 enemy = ExtResource("2_i16io")
-enemy_num = 1
+enemy_num = 3
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_1cvct"]
+script = ExtResource("3_6i34u")
+time_start = 90
+time_end = 300
+enemy = ExtResource("2_i16io")
+enemy_num = 2
 enemy_spawn_delay = 1
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_ni3n6")
-spawns = Array[ExtResource("3_6i34u")]([SubResource("Resource_pv1ar"), SubResource("Resource_ls1h3"), SubResource("Resource_0245i"), SubResource("Resource_0xmt4"), SubResource("Resource_1hmlf")])
+spawns = Array[ExtResource("3_6i34u")]([SubResource("Resource_pv1ar"), SubResource("Resource_ls1h3"), SubResource("Resource_0245i"), SubResource("Resource_0xmt4"), SubResource("Resource_1hmlf"), SubResource("Resource_1cvct")])
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
