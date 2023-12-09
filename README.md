@@ -11,7 +11,7 @@ This game revolves around surviving hoards of enemies while progressively gettin
 * Derek Tramper
 
 ## Prerequisites
-Either a windows computer to run the exe file for the game or godot to run the game within the engine.
+This game requirements either a windows computer to run the exe file for the game or godot to run the game within the engine.
 
 ## Run Instructions
 Windows:
