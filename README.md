@@ -2,7 +2,7 @@
 
 
 ## Project description 
-We will be developing a rogue like game within python. It will be a top down 2D turn-based game where you have to fight your way through dungeons until the end.
+This game revolves around surviving hoards of enemies while progressively getting stronger. The game will last until the player survives 10 minutes or they die. Features include: character level ups, muliple weapons to fight mobs with, and 2 unique enemy types.
 
 ## Team Members and Roles
 
