@@ -11,5 +11,15 @@ This game revolves around surviving hoards of enemies while progressively gettin
 * Derek Tramper
 
 ## Prerequisites
+Either a windows computer to run the exe file for the game or godot to run the game within the engine.
 
 ## Run Instructions
+Windows:
+* Download the repository
+* Run the exe file called "Game.exe" located in the "GVSU-CIS350-Locale-Lasers" folder
+
+Other platforms:
+* Download the repository
+* Download godot
+* Open up the 2D Game project within the game engine
+* Run the program
