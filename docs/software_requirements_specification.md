@@ -1,6 +1,6 @@
 # Overview
 
-<Describe the purpose of this document in 1 paragraph of less … hint: it is your SRS>
+This document's purpose serves to display the requirements we intend to take on with our project. By having clear requirements, we are able to stay organized and have a clear goal oriented approach to our programming. 
 
 # Functional Requirements
 
