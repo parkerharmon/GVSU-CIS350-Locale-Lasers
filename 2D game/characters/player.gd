@@ -186,5 +186,5 @@ func _on_game_timer_timeout():
 		time = 0
 		minute += 1
 	lblTimer.text = str("Time:",minute,":", time)
-	if time == 600:
+	if minute == 10:
 		get_tree().change_scene_to_file("res://scenes/you_win.tscn")
