@@ -1,5 +1,5 @@
 # Overview  
-<Describe the purpose of this document in 1 paragraph of less ... hint: it isyour SRS>  
+This document's purpose serves to display the requirements we intend to take on with our project. By having clear requirements, we are able to stay organized and have a clear goal oriented approach to our programming.
 # Software Requirements  
 The structure of this doc will have the functional requirements listed first and then the non-functional requirements listed afterward. Each requirement will have an ID associated with it to allow for easy referencing of each requirement. 
   
